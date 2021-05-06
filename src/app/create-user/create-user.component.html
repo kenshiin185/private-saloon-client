@@ -1,0 +1,16 @@
+<div class="marge"></div>
+<div class="wrapForm">
+<h2 style="color: yellow; margin: auto;width: 250px;margin-bottom: 20px;">Créez votre compte</h2>
+    <form [formGroup]="creationUserForm" #formDirective="ngForm" (submit)="createUser(formDirective)">
+        <label for="image" style="color: yellow;">Pseudo</label>
+        <input type="text" placeholder="saisissez votre pseudo" formControlName="user" required >
+        <label for="image" style="color: yellow;">Mot de passe</label>
+        <input type="password" placeholder="saisissez votre mot de passe" formControlName="password" required >
+        <label for="image" style="color: yellow;">Avatar</label>
+        <input type="file" name="image" id="image" formControlName="image">
+        <button class="validAvatar" type="button" (click)="upload()"style="color: black;">Valider avatar</button>
+       
+        <button type="submit">Créer</button>
+    </form> 
+</div>
+

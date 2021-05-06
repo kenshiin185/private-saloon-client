@@ -1,0 +1,19 @@
+<div class="marge" style="margin-bottom: 20px;"></div>
+<mat-card class="example-card" *ngFor="let msg of allMsgposts">
+  <mat-card-header class="head">
+    <div mat-card-avatar class="example-header-image"><img [src]="imagePath + msg.image" alt=""></div>
+    <mat-card-title style="color: yellow;">{{msg.user}}</mat-card-title>
+    <mat-card-subtitle>{{msg.createdOn | date:'medium'}}</mat-card-subtitle>
+  </mat-card-header>    
+  <mat-card-content>
+    <p>
+      {{msg.content}}
+    </p>
+  </mat-card-content>
+  
+</mat-card>
+
+<button class="deco" (click)="logout()">Déconnexion</button>
+<div class="marge"></div>
+  <app-msgpost-create></app-msgpost-create>
+

@@ -1,0 +1,34 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+input{
+    padding: 10px;
+    margin: auto;
+    width: 80vw;
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px;
+    width: 80px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: yellow;
+    color: black;
+    font-weight: 800;
+    font-size:1.1em;
+}
+.marge  {
+    height: 150px;
+}
+label {
+    margin: auto;
+}
+.validAvatar {
+    width: 180px;
+    margin-bottom:25px;
+}

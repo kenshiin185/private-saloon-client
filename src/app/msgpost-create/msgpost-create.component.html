@@ -1,0 +1,10 @@
+<div class="wrapMessagePoster">
+    <form [formGroup]="formPostMessage"(ngSubmit)="sendMessage()">
+        <input type="text" name="content"placeholder="Saisissez votre message" formControlName="content">
+        <input class="img" type="text"value="{{this.img}}" name="image" formControlName="image">
+        <input class="user" type="text"value="{{this.user}}" name="user" formControlName="user">
+        <button> <img src="assets/images/send.png" alt=""> </button>
+
+    </form>
+</div>
+

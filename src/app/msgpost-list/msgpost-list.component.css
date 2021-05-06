@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.head{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 10px;
+}
+mat-card-actions{
+    margin-left: 60%;
+    border: 1px dotted red;
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+   
+}
+button {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.example-card{
+    border: transparent;
+}
+.marge{
+   height: 80px;
+}
+.deco {
+    width: auto;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: yellow;
+    color: black;
+    font-weight: 600;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    z-index: 9999999;
+}
+.deco:hover {
+    cursor: pointer;
+}

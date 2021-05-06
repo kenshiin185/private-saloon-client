@@ -1,0 +1,11 @@
+<div class="wrapFormConnect">
+<form #loginForm="ngForm" (ngSubmit)="login()">
+    <h2 style="color: yellow;">Connectez-vous</h2>
+    <input type="text" placeholder="pseudo" name="user"id="user" [(ngModel)]="user.user" required>
+    <input type="password" placeholder="mot de passe" name="password"id="password" [(ngModel)]="user.password" required>
+    <button type="submit" [disabled]="!loginForm.form.valid">Connexion</button>
+    <div class="addAccount" style="color: yellow; margin-top: 15px;">Pas encore inscrit?<br>
+    </div>
+    <a style="color:rgb(255, 94, 0);" [routerLink]="['/create-user']" style="margin-top: 15px;">Créer un compte</a>
+</form>
+</div>

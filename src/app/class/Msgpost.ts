@@ -1,7 +1,6 @@
 export class Msgpost {
     _id?: string;
-    user:string;
+    user: string;
     content: string;
-    
     image: string;
 }

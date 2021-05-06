@@ -10,7 +10,7 @@ import { MsgpostComponent } from './msgpost/msgpost.component';
 
 const routes: Routes = [
   {path:'', component: ConnectUserComponent},
-  {path:'salon/:id', component: MsgpostListComponent},
+  {path:'salon/:utilisateur/:image', component: MsgpostListComponent},
   {path:'msg-posts/:id', component:MsgpostComponent},
   {path:'create-user', component: CreateUserComponent},
   {path:'post', component:MsgpostCreateComponent},

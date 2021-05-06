@@ -13,12 +13,14 @@ import { ActivatedRoute } from '@angular/router';
 export class MsgpostCreateComponent implements OnInit {
   id:string;
   dataUser:User;
-   user: any;
-   img: any;
+  userRecu:string="";
+  imageRecu:string="";
+   user: string;
+   img: string;
   pathImage='http://localhost:3000/uploads/'
   formPostMessage: FormGroup = new FormGroup({
-    user: new FormControl("", [Validators.required]),
-    image: new FormControl("", [Validators.required]),
+    user: new FormControl(""),
+    image: new FormControl(""),
     content: new FormControl("", [Validators.required]),
   });
   constructor(private authService: AuthService,
@@ -26,31 +28,39 @@ export class MsgpostCreateComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) { }
   ngOnInit() {
-    const id = this.activatedRoute.snapshot.params.id;
-    this.getCurrentUser(id);
+  
+    this.userRecu = this.activatedRoute.snapshot.params.utilisateur;console.log('user recu', this.userRecu);
+    this.imageRecu = this.activatedRoute.snapshot.params.image;console.log('image recue', this.imageRecu);
+    this.user = this.userRecu;
+    this.img = this.imageRecu;
+    
   }
   sendMessage() {
-    const id = this.activatedRoute.snapshot.params.id;
-    this.getCurrentUser(id);
-  } 
-  getCurrentUser(id:string){
-    this.authService
-    .getUserById(id)
-    .subscribe((data)=> {
-      data._id = id;
-      this.user = data.user;
-      this.img = data.image;
-      this.dataUser = data;
-      console.log('user :',data);    
-      /************************* */
-      console.log('insend>>>',this.dataUser._id,this.user,this.img);
-      let newMessage = new Msgpost();
-      newMessage.user =this.user;
-      newMessage.image = this.img;
-      newMessage.content = this.formPostMessage.value;
-      console.log('contenu >>==::',this.formPostMessage.value);
-    });
+  
+    let newMessage = new Msgpost();
+    newMessage.user =this.userRecu;
+    newMessage.image = this.imageRecu;
+    newMessage.content = this.formPostMessage.value.content;
+    console.log('contenu >>==::',this.formPostMessage.value);
+    /**************************** */
+    this.msgpostService
+      .createMsgpost(newMessage) //récupération de la valeur de tous les inputs
+      .subscribe(data => this.handleSuccess(data), error => this.handleError(error));
+    console.log('<<<<<<', newMessage);
+  
+
   }
-  //endClass
+  handleSuccess(data) {
+    console.log('ok', data);
+    this.formPostMessage.reset();
+    // formDirective.resetForm();
+    this.msgpostService.dispatchMsgpostCreated(data._id);
+    console.log('handle>>>>>', this.formPostMessage.value);
+  }
+
+  handleError(error) {
+    console.log('Erreur lors de la soumission du message ',error);
+  }
+   //endClass
 }
 
